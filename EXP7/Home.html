@@ -45,8 +45,13 @@
                     alert( "Phone number not valid");
                  } 
                  else
-                    a= window.confirm("name:"+name+"  gender:"+gender+"   Qualification:"+selectedItems+"Skills:"+skills+"   phone no:"+phone);  
-
+                    {
+                        a= window.confirm("name:"+name+"  gender:"+gender+"   Qualification:"+selectedItems+"Skills:"+skills+"   phone no:"+phone);  
+                        if(a)
+                            document.location = "success.html";
+                        else
+                            document.location="Home.html";
+                    }     
             }
         </script>
     </body>
