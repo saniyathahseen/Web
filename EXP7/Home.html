@@ -9,10 +9,11 @@
            
             Name:<br>
             <input type="text" id="name" required><br><br>
+           Email: <input type="email" id="email"><br>
             Gender:<br>
-            <input type="radio" id="gender" value="male"> Male<br>
-            <input type="radio" id="gender" value="female"> Female<br>
-            <input type="radio" id="gender" value="other"> Other
+            <input type="radio" name="gender" value="male" onclick="ValidateEmail(document.form1.text1)"> Male<br>
+            <input type="radio" name="gender" value="female"> Female<br>
+            <input type="radio" name="gender" value="other"> Other
             <br><br>Qualification:<br>
             <input type="checkbox" name="Qualification" value="SSLC"> SSLC<br>
             <input type="checkbox" name="Qualification"  value="Plus Two"> Plus Two<br>
@@ -26,10 +27,11 @@
             <br><br>
             phone no:<input type="number" id="phone" required ><br>
             <br><br>
-            <button  name="submit"  onclick="click1()">submit</button>
+            <button  name="submit"  onclick="click1(document.getElementById(email))">submit</button>
         </form>
         <script>
-            function click1(){
+             
+            function click1(mail){
                 var items=document.getElementsByName('Qualification');
 				var selectedItems="";
 				for(var i=0; i<items.length; i++){
@@ -40,7 +42,12 @@
                 gender=document.getElementById("gender").value;
                 skills=document.getElementsByName('v');
                 phone=document.getElementById("phone").value;
-
+                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value))
+                 {
+                     return (true)
+                 }
+                 alert("You have entered an invalid email address!")
+                    return (false)
                 if (phone.length!=10) {
                     alert( "Phone number not valid");
                  } 
